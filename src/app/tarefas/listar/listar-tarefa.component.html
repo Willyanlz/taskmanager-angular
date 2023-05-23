@@ -1,0 +1,29 @@
+
+<table class="table table-striped table-bordered table-hover">
+    <tbody>
+        <tr>
+            <th style="font-size: 22px; vertical-align: middle; text-align: center;">Tarefas &lt;&gt;</th>
+            <th style="font-size: 20px; vertical-align: middle;">Concluída</th>
+            <th class="text-center" [routerLink]="['/tarefas/cadastrar']">
+                <a [routerLink]="['/tarefas/cadastrar']"><span class="glyphicon glyphicon-plus" id="novo" aria-hidden="true"></span></a>
+            </th>
+        </tr>
+        <tr *ngFor="let tarefa of tarefas">
+            <td [tarefaConcluida]="tarefa.concluida" [class.naoConcluida]="!tarefa.concluida" [class.concluida]="tarefa.concluida" style="font-size: 20px; vertical-align: middle; cursor: pointer;" [routerLink]="['/tarefas/editar', tarefa.id]">
+                {{ tarefa.nome }} 
+            </td>
+            <td style="width: 70px;" class="text-center" (click)="alterarStatus($event, tarefa)">
+                <div class="onoffswitch2">
+                    <input  type="checkbox" [value]="tarefa.id" class="onoffswitch2-checkbox" id="myonoffswitch2" [checked]="tarefa.concluida">
+                    <label class="onoffswitch2-label" for="myonoffswitch2">
+                        <span class="onoffswitch2-inner"></span>
+                        <span class="onoffswitch2-switch"></span>
+                    </label>
+                </div>
+            </td>
+            <td class="text-center" style="width: 100px;" (click)="remover($event, tarefa)">
+                <a href="#"> <span class="glyphicon glyphicon-trash" aria-hidden="true" id="deletar"></span></a>
+            </td>
+        </tr>
+    </tbody>
+</table>

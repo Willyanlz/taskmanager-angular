@@ -8,7 +8,7 @@ export class TarefaService {
 
   // private readonly URL = "http://localhost:8080/api/tarefas"
   // private readonly URL = "http://192.168.15.70:8080/api/tarefas" // url para testar em outras maquinas localmente
-     private readonly URL = "http://192.168.0.16:8080/api/tarefas" 
+     private readonly URL = "https://taskmanager-api-production-1e24.up.railway.app/api/tarefas" 
 
   constructor(private http: HttpClient) { }
 
